@@ -23,7 +23,6 @@ def run(n_clusters):
     images_paths = {CENTERS: [], SAMPLES: {}}
     save_centers(images_paths, kmeans)
     save_samples(images_paths, samples)
-    print(images_paths)
     return images_paths
 
 
