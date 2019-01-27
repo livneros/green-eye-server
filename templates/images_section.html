@@ -3,7 +3,7 @@
     <table>
         <tbody>
         <tr>
-            {% for i in range(results['centers'].__len__()) %}
+            {% for i in range(len(results['centers'])) %}
             <td>center {{i}} : </td>
             <td><img src="/static/images/{{ results['centers'][i] }}"></td>
             <td>samples: </td>

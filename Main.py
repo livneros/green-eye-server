@@ -28,8 +28,8 @@ def run(n_clusters):
 
 def save_samples(images_paths, samples):
     j = 0
-    for label in range(samples.keys().__len__()):
-        for i in range(SAMPLES_SIZE):
+    for label in range(len(samples.keys())):
+        for i in range(min(SAMPLES_SIZE, len(samples.get(label)))):
             image_name = 'sample-' + "digit=" + str(j) + "-" + str(i) + '.png'
             save_image(samples.get(label)[i], image_name)
             if i == 0:
