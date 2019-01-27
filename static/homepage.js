@@ -1,9 +1,11 @@
 const SERVER_PATH = 'http://35.204.32.41:8080';
 
 function validate_n_clusters(n_clusters){
-    if (isNaN(n_clusters) || parseInt(n_clusters) < 1 || parseInt(n_clusters) > 20){
+    if (isNaN(n_clusters) || parseInt(n_clusters) < 1 || parseInt(n_clusters) > 12){
         alert("Please type a valid number.");
+        return false;
     }
+    return true;
 }
 
 function loadImages() {
@@ -11,8 +13,7 @@ function loadImages() {
     xhttp.open('POST', SERVER_PATH , true)
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     var n_clusters = document.getElementById('clusters_input').value;
-    console.log("n_clusters = ", n_clusters)
-    validate_n_clusters(n_clusters);
+    if(!validate_n_clusters(n_clusters)){break;}
     xhttp.send(JSON.stringify({n_clusters: n_clusters}));
     xhttp.onload = function()
         {
