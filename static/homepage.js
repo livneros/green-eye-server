@@ -13,7 +13,7 @@ function loadImages() {
     xhttp.open('POST', SERVER_PATH , true)
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     var n_clusters = document.getElementById('clusters_input').value;
-    if(!validate_n_clusters(n_clusters)){break;}
+    if(!validate_n_clusters(n_clusters)){return;}
     xhttp.send(JSON.stringify({n_clusters: n_clusters}));
     xhttp.onload = function()
         {
