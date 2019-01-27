@@ -2,19 +2,21 @@
     {% if results %}
     <table>
         <tbody>
-        <tr>"Centers"></tr>
+        <tr>"Centers:"</tr>
         <tr>
             {% for img_name in results['centers'] %}
             <td>{{ img_name }}</td>
             <td><img src="/static/images/{{ img_name }}"></td>
             {% endfor %}
         </tr>
-        <tr>"Samples"></tr>
+        <tr>"Samples:"</tr>
         <tr>
             {% for label in results['samples'] %}
-            <td>{{ label }}</td>
+            <td>{{ label }} : </td>
             {% for img_name in results['samples'][label] %}
+
             <td><img src="/static/images/{{ img_name }}"></td>
+
             {% endfor %}
             {% endfor %}
         </tr>

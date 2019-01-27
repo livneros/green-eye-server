@@ -28,13 +28,13 @@ def run(n_clusters):
 
 def save_samples(images_paths, samples):
     j = 0
-    for batch in samples:
+    for label in range(samples.keys().__len__()):
         for i in range(SAMPLES_SIZE):
             image_name = 'sample-' + "digit=" + str(j) + "-" + str(i) + '.png'
-            save_image(samples.get(batch)[i], image_name)
+            save_image(samples.get(label)[i], image_name)
             if i == 0:
-                images_paths.get(SAMPLES)[batch] = []
-            images_paths.get(SAMPLES).get(batch).append(image_name)
+                images_paths.get(SAMPLES)[label] = []
+            images_paths.get(SAMPLES).get(label).append(image_name)
         j += 1
 
 
@@ -55,5 +55,7 @@ def save_image(image, image_name):
 def sample_from_each_label(labels, n_clusters):
     samples = {}
     for label in range(n_clusters):
-        samples[str(label)] = get_samples(labels, label)
+        samples[label] = get_samples(labels, label)
     return samples
+
+run(3)
