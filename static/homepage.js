@@ -17,7 +17,9 @@ function loadImages() {
 //    xhttp.open("GET", "localhost:5000/", true);
 //    xhttp.send();
     //Call the open function, GET-type of request, url, true-asynchronous
-    xhttp.open('GET', 'http://localhost:5000', true)
+    xhttp.open('POST', 'http://localhost:5000', true)
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(JSON.stringify({n_clusters: 3}));
     //call the onload
     xhttp.onload = function()
         {
