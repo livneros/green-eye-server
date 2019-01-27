@@ -4,7 +4,8 @@ function loadImages() {
     var xhttp = new XMLHttpRequest();
     xhttp.open('POST', SERVER_PATH , true)
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    let n_clusters = document.getElementById('clusters_input').value;
+    var n_clusters = document.getElementById('clusters_input').value;
+    console.log("n_clusters = ", n_clusters)
     validate_n_clusters(n_clusters);
     xhttp.send(JSON.stringify({n_clusters: n_clusters}));
     xhttp.onload = function()
