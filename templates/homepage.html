@@ -15,11 +15,21 @@
 					{% if results %}
 						<table>
 							<tbody>
-							{% for img_name in results %}
+								<h2>"Centers"></h2>
 								<tr>
-									<td><img src="http://35.204.32.41:8080/green-eye-server/static/images/{{ img_name }}"></td>
+								{% for img_name in results['centers'] %}
+									<img src="http://35.204.32.41:8080/green-eye-server/static/images/{{ img_name }}">
+								{% endfor %}
 								</tr>
-							{% endfor %}
+								<h2>"Samples"></h2>
+								<tr>
+								{% for label in results['samples'] %}
+									<h3>{{ label }}</h3>
+									{% for img_name in results['samples'][label] %}
+										<img src="http://35.204.32.41:8080/green-eye-server/static/images/{{ img_name }}">
+									{% endfor %}
+								{% endfor %}
+								</tr>
 							</tbody>
 						</table>
 					{% else %}
