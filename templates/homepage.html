@@ -10,35 +10,8 @@
 	</head>
 	<body>
 		<div class=background>
-			<div class="images">
-				<div id="centers">
-					{% if results %}
-						<table>
-							<tbody>
-								<tr>"Centers"></tr>
-								<tr>
-								{% for img_name in results['centers'] %}
+			<div id="images">
 
-									<td><img src="{{url_for('static', filename='images/{{ img_name }}' )}}"></td>
-								{% endfor %}
-								</tr>
-								<tr>"Samples"></tr>
-								<tr>
-								{% for label in results['samples'] %}
-									<td>{{ label }}</td>
-									{% for img_name in results['samples'][label] %}
-										<td><img src="{{url_for('static', filename='images/{{ img_name }}' )}}"></td>
-									{% endfor %}
-								{% endfor %}
-								</tr>
-							</tbody>
-						</table>
-					{% else %}
-						No results :(
-					{% endif %}
-				</div>
-				<div id="samples">
-				</div>
 			</div>
 			<div class="wrap">
 			   <div class="search">

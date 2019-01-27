@@ -26,7 +26,7 @@ function loadImages() {
             if (this.status === 200)
                 {
                     //return server response as an object with JSON.parse
-                    return this.responseText;
+                    document.getElementById("images").innerHTML = this.responseText;
         }
                 }
     //call send
