@@ -1,34 +1,23 @@
+const SERVER_PATH = 'http://35.204.32.41:8080';
 
 function loadImages() {
-  var xhttp = new XMLHttpRequest();
-
-//  xhttp.onreadystatechange = function() {
-//	console.log(this);
-//	console.log("status = ", this.status);
-//    if (this.readyState == 4 && this.status == 200) {
-//		document.getElementById("centers").innerHTML = this.responseText;
-//		console.log(this.respoonseText);
-//    }
-//  };
-//  xhttp.open("POST", "localhost:5000/", true);
-//  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-//  xhttp.send(JSON.stringify({n_clusters: 3}));
-//    console.log("inside request")
-//    xhttp.open("GET", "localhost:5000/", true);
-//    xhttp.send();
-    //Call the open function, GET-type of request, url, true-asynchronous
-    xhttp.open('POST', 'http://35.204.32.41:8080', true)
+    var xhttp = new XMLHttpRequest();
+    xhttp.open('POST', SERVER_PATH , true)
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhttp.send(JSON.stringify({n_clusters: 3}));
+    let n_clusters = document.getElementById('clusters_input').value;
+    validate_n_clusters(n_clusters);
+    xhttp.send(JSON.stringify({n_clusters: n_clusters}));
     xhttp.onload = function()
         {
-            //check if the status is 200(means everything is okay)
-            if (this.status === 200)
-                {
-                    //return server response as an object with JSON.parse
-                    document.getElementById("images").innerHTML = this.responseText;
+            if (this.status === 200){
+                document.getElementById("images").innerHTML = this.responseText;
+            }
         }
-                }
-    //call send
     xhttp.send();
+}
+
+export function validate_n_clusters(n_clusters){
+    if (isNan(n_clusters) || parseInt(n_clusters) < 1 || parseInt(n_clusters > 20)){
+        alert("Please type a valid number.");
+    }
 }
