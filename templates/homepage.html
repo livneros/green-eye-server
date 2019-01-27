@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<title>Green-Eye Project</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="static/homepage.css">
+		<script src="static/homepage.js"></script>
+	</head>
+	<body>
+		<div class=background>
+			<div class="images">
+				<div id="centers">
+					{% if results %}
+						<table>
+							<tbody>
+							{% for img_name in results %}
+								<tr>
+									<td><img src="/static/images/{{ img_name }}"></td>
+								</tr>
+							{% endfor %}
+							</tbody>
+						</table>
+					{% else %}
+						No results :(
+					{% endif %}
+				</div>
+				<div id="samples">
+				</div>
+			</div>
+			<div class="wrap">
+			   <div class="search">
+				  <input type="text" class="searchTerm" placeholder="How many Clusters would you like?">
+				  <button id="searchButton" type="submit" onclick="loadImages()">
+					<i class="fa fa-search"></i>
+				 </button>
+			   </div>
+			</div>
+		</div>
+	</body>
+</html>
