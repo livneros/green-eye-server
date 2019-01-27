@@ -14,7 +14,7 @@ def homepage():
 def kmeans():
     n_clusters = request.get_json()['n_clusters']
     return render_template(
-        'images_section.html', results=Main.run(n_clusters)
+        'images_section.html', results=Main.run(int(n_clusters))
     )
 
 
