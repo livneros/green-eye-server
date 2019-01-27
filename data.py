@@ -9,7 +9,7 @@ def reshape(image):
 
 
 train_images = train_images.reshape(reshape(train_images))
-images = train_images[:500]
+images = train_images
 train_labels = mnist.train_labels()
 test_images = mnist.test_images()
 test_images = test_images.reshape(reshape(test_images))
