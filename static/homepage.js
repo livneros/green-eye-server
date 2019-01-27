@@ -1,6 +1,6 @@
 const SERVER_PATH = 'http://35.204.32.41:8080';
 
-export function validate_n_clusters(n_clusters){
+function validate_n_clusters(n_clusters){
     if (isNan(n_clusters) || parseInt(n_clusters) < 1 || parseInt(n_clusters > 20)){
         alert("Please type a valid number.");
     }
