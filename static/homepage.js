@@ -20,14 +20,13 @@ function loadImages() {
     xhttp.open('POST', 'http://35.204.32.41:8080', true)
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhttp.send(JSON.stringify({n_clusters: 3}));
-    //call the onload
     xhttp.onload = function()
         {
             //check if the status is 200(means everything is okay)
             if (this.status === 200)
                 {
                     //return server response as an object with JSON.parse
-                    console.log(JSON.parse(this.responseText));
+                    console.log(this.responseText);
         }
                 }
     //call send
