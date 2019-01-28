@@ -21,10 +21,8 @@ function loadImages() {
                 document.getElementById("images").innerHTML = this.responseText;
             }
         }
-//    xhttp.send();
 }
 
 function clearText(id){
-    console.log("id = ", id)
     document.getElementById(id).value = "";
 }
