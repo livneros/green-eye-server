@@ -12,13 +12,14 @@ function valid_n_clusters(n_clusters){
 }
 
 function loadImages() {
+    console.log(document.getElementsByClassName("loader")[0].style.visibility)
+    document.getElementsByClassName("loader")[0].style.visibility = 'hidden';
     var xhttp = new XMLHttpRequest();
     xhttp.open('POST', SERVER_PATH , true)
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     var n_clusters = document.getElementById('clusters_input').value;
     if(!valid_n_clusters(n_clusters)){return;}
     xhttp.send(JSON.stringify({n_clusters: n_clusters}));
-    $('#loader').show();
     xhttp.onload = function()
         {
             if (this.status === 200){
