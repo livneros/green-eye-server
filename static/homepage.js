@@ -26,5 +26,6 @@ function loadImages() {
 
 function clearText(){
     console.log("this = ", this)
+    document.getElementById('clusters_input').value = "";
     this.value = '';
 }
