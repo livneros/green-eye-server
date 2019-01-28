@@ -18,7 +18,7 @@ function loadImages() {
     xhttp.onload = function()
         {
             if (this.status === 200){
-                document.getElementById("images").innerHTML = this.responseText;
+                document.getElementsByClassName("images").innerHTML = this.responseText;
             }
         }
     xhttp.send();
