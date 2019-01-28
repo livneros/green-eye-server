@@ -12,7 +12,7 @@ function valid_n_clusters(n_clusters){
 }
 
 function loadImages() {
-    console.log(document.getElementById("loader").style.display)
+    print(document.getElementById("loader").style.display= '';
     document.getElementById("images").innerHTML = '';
     var xhttp = new XMLHttpRequest();
     xhttp.open('POST', SERVER_PATH , true)
