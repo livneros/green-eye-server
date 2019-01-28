@@ -26,5 +26,5 @@ function loadImages() {
 
 function clearText(){
     console.log("inside clear text")
-    this.val = '';
+    this.value = '';
 }
