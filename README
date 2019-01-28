@@ -1,0 +1,4 @@
+In order to run the web server on your localhost, type:
+$ python3 server.py
+Address of the web server running on an external VM:
+http://35.204.32.41:8080/
