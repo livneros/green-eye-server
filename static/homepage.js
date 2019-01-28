@@ -12,7 +12,7 @@ function valid_n_clusters(n_clusters){
 }
 
 function loadImages() {
-    document.getElementById("loader")[0].style.visibility = 'visible';
+//    document.getElementById("loader").style.visibility = 'visible';
     var xhttp = new XMLHttpRequest();
     xhttp.open('POST', SERVER_PATH , true)
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
