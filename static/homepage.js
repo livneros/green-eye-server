@@ -24,7 +24,7 @@ function loadImages() {
 //    xhttp.send();
 }
 
-function clearText(this){
+function clearText(){
     console.log("inside clear text")
     this.val = '';
 }
