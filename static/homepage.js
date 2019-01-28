@@ -12,7 +12,8 @@ function valid_n_clusters(n_clusters){
 }
 
 function loadImages() {
-    document.getElementById("loader").style.display='inline';
+    print(document.getElementById("loader").style.display)
+    document.getElementById("images").innerHTML = '';
     var xhttp = new XMLHttpRequest();
     xhttp.open('POST', SERVER_PATH , true)
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");

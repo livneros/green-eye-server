@@ -89,7 +89,7 @@ body{
     font-family: "serif";
 }
 .loader {
-  visibility: hidden;
+
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
   border-radius: 50%;
