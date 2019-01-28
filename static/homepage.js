@@ -24,8 +24,6 @@ function loadImages() {
 //    xhttp.send();
 }
 
-function clearText(){
-    console.log("this = ", this)
-    document.getElementById('clusters_input').value = "";
-    this.value = '';
+function clearText(id){
+    document.getElementById(id).value = "";
 }
