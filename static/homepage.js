@@ -22,7 +22,7 @@ function loadImages() {
     xhttp.onload = function()
         {
             if (this.status === 200){
-                document.getElementById("loader").style.visibility: visible;;
+                document.getElementById("loader").style.visibility = 'hidden';
                 document.getElementById("images").innerHTML = this.responseText;
             }
         }
