@@ -25,5 +25,6 @@ function loadImages() {
 }
 
 function clearText(id){
+    console.log("id = ", id)
     document.getElementById(id).value = "";
 }
