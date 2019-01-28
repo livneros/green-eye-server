@@ -108,4 +108,5 @@ def run(n_clusters):
     kmeans = KMeans(n_clusters=n_clusters)
     kmeans = kmeans.fit(featureVectorList)
     labels = kmeans.predict(featureVectorList)
-    return {'samples': dumpResults()[1], 'centers': []}
+    data, paths = dumpResults()
+    return {'samples': paths, 'centers': []}
