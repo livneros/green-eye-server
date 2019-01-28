@@ -1,7 +1,7 @@
 from PIL import Image
-from sklearn.cluster import KMeans
 
-from data_processor import *
+import kmeans_pre_processor
+from mnist_pre_processor import *
 
 RGB = 'RGB'
 MNIST_IMAGE_SIZE = 28
@@ -11,13 +11,12 @@ IMAGES_PATH_ROOT = "static/images/"
 SAMPLES_SIZE = 5
 
 
-def get_samples(labels, label):
-    return images[np.where(labels == label)][:SAMPLES_SIZE]
+def get_samples(samples, labels, label):
+    return samples[np.where(labels == label)][:SAMPLES_SIZE]
 
 
 def run(n_clusters):
-    kmeans = KMeans(n_clusters).fit(images)
-    labels = kmeans.labels_
+    kmeans, labels, all_samples = kmeans_pre_processor.run_kmeans(n_clusters)
     samples = sample_from_each_label(labels, n_clusters)
     images_paths = {CENTERS: [], SAMPLES: {}}
     save_centers(images_paths, kmeans)
@@ -51,10 +50,8 @@ def save_image(image, image_name):
     im.save(IMAGES_PATH_ROOT + image_name)
 
 
-def sample_from_each_label(labels, n_clusters):
+def sample_from_each_label(all_samples, labels, n_clusters):
     samples = {}
     for label in range(n_clusters):
-        samples[label] = get_samples(labels, label)
+        samples[label] = get_samples(all_samples, labels, label)
     return samples
-
-run(3)

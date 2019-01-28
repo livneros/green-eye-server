@@ -1,11 +1,17 @@
+import random
 import time
 from os import listdir
 from os.path import join, isfile, dirname, realpath
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from sklearn.cluster import KMeans
 
-outputDir = dirname(realpath(__file__)) + '/output/'
+relativeOutputDir = 'output/'
+basePath = dirname(realpath(__file__))
+outputDir = basePath + "/" + relativeOutputDir
+
 
 def dumpFeatures(layeredOutput, data, dataLabels, isTrain):
     chunkSize = 5000
@@ -47,11 +53,11 @@ def getFeatureVectors(dir):
         data = pd.read_csv(file)
         dataFrame = pd.DataFrame(data, columns=titleRow)
         for i in range(len(dataFrame)):
-            label = dataFrame['Label'][i].replace('[', '').replace(']', '').split(',')
+            # label = dataFrame['Label'][i].replace('[', '').replace(']', '').split(',')
             characterData = dataFrame['Data'][i].replace('[', '').replace(']', '').split(',')
             featureVector = dataFrame['Feature Vector'][i].replace('[', '').replace(']', '').split(',')
 
-            labelList.append(label)
+            labelList.append(float(dataFrame['Label'][i]))
             characterDataList.append(characterData)
             featureVectorList.append(featureVector)
 
@@ -59,12 +65,39 @@ def getFeatureVectors(dir):
         characterDataList[i] = [int(float(value)) for value in characterDataList[i]]
         characterDataList[i] = np.array(characterDataList[i]).reshape(28, 28)
         featureVectorList[i] = [float(value) for value in featureVectorList[i]]
-        labelList[i] = [float(value) for value in labelList[i]]
+        # labelList[i] = [float(value) for value in labelList]
     return labelList, characterDataList, featureVectorList
 
 
-# labelList, characterDataList, featureVectorList = getFeatureVectors('output/features/')
-# k = 10
-# kmeans = KMeans(n_clusters=10)
-# kmeans = kmeans.fit(featureVectorList)
-# labels = kmeans.predict(featureVectorList)
+def run_kmeans(n_clusters):
+    labelList, characterDataList, featureVectorList = getFeatureVectors(relativeOutputDir)
+    kmeans = KMeans(n_clusters=n_clusters)
+    return kmeans.fit(featureVectorList), labelList, characterDataList, featureVectorList
+
+
+def dumpResults():
+    clusterData = []
+    for i in range(10):
+        clusterData.append([])
+    for i in range(len(labels)):
+        clusterData[labels[i]].append([characterDataList[i], labelList[i]])
+
+    for l in range(10):
+        print("Plotting for label %d" % (l))
+        fig, axes = plt.subplots(nrows=10, ncols=10, sharex=True)
+        fig.set_figheight(15)
+        fig.set_figwidth(15)
+        count = 0
+        randomNoList = random.sample(range(0, len(clusterData[l])), 100)
+        for i in range(10):
+            for j in range(10):
+                axes[i][j].imshow(clusterData[l][randomNoList[count]][0])
+                count += 1
+        fig.savefig(relativeOutputDir + 'kmeans_cluster' + str(l) + '.png')
+    return clusterData
+
+kmeans, labelList, characterDataList, featureVectorList = run_kmeans(10)
+kmeans = KMeans(n_clusters=10)
+kmeans = kmeans.fit(featureVectorList)
+labels = kmeans.predict(featureVectorList)
+dumpResults()

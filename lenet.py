@@ -10,12 +10,12 @@ from keras.optimizers import SGD
 from keras.utils import np_utils
 from sklearn.model_selection import train_test_split
 
-import data_processor
-import preprocess
+import kmeans_pre_processor
+import mnist_pre_processor
 
 # Download the MNIST dataset
-dataset = data_processor.get_data()
-labels = data_processor.get_labels()
+dataset = mnist_pre_processor.get_data()
+labels = mnist_pre_processor.get_labels()
 # Reshape the data to a (70000, 28, 28) tensor
 data = dataset.reshape((dataset.shape[0], 28, 28))
 
@@ -110,10 +110,6 @@ model.fit(
 # Print the model's accuracy
 print(accuracy)
 
-# ninth_output = model.layers[9].output
-# model_input = model.layers[0].input
-# np.savetxt("ninth_output.csv", ninth_output, delimiter=",")
-# np.savetxt("model_input.csv", model_input, delimiter=",")
 lastLayerOp = K.function([model.layers[0].input],
                          [model.layers[9].output])
-preprocess.dumpFeatures(lastLayerOp, data, labels, True)
+kmeans_pre_processor.dumpFeatures(lastLayerOp, data, labels, True)
