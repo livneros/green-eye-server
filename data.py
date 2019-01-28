@@ -8,7 +8,7 @@ def reshape_image_to_1D(image):
 
 
 train_images = train_images.reshape(reshape_image_to_1D(train_images))
-images = train_images[:100]
+images = train_images[:30000]
 # train_labels = mnist.train_labels()
 # test_images = mnist.test_images()
 # images = test_images.reshape(reshape_image_to_1D(test_images))
