@@ -1,8 +1,7 @@
-import numpy as np
 from PIL import Image
 from sklearn.cluster import KMeans
 
-from data import *
+from data_processor import *
 
 RGB = 'RGB'
 MNIST_IMAGE_SIZE = 28
