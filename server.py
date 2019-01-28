@@ -1,5 +1,7 @@
-from flask import Flask, render_template, request, jsonify
-import Main
+from flask import Flask, render_template, request
+
+import kmeans_pre_processor
+
 app = Flask(__name__)
 
 
@@ -14,7 +16,7 @@ def homepage():
 def kmeans():
     n_clusters = request.get_json()['n_clusters']
     return render_template(
-        'images_section.html', results=Main.run(int(n_clusters))
+        'images_section.html', results=kmeans_pre_processor.run(int(n_clusters))
     )
 
 

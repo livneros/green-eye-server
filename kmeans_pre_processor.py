@@ -77,6 +77,7 @@ def run_kmeans(n_clusters):
 
 def dumpResults():
     clusterData = []
+    paths = []
     for i in range(10):
         clusterData.append([])
     for i in range(len(labels)):
@@ -94,10 +95,14 @@ def dumpResults():
                 axes[i][j].imshow(clusterData[l][randomNoList[count]][0])
                 count += 1
         fig.savefig(relativeOutputDir + 'kmeans_cluster' + str(l) + '.png')
-    return clusterData
+        paths.append(relativeOutputDir + 'kmeans_cluster' + str(l) + '.png')
+    return clusterData, paths
 
-kmeans, labelList, characterDataList, featureVectorList = run_kmeans(10)
-kmeans = KMeans(n_clusters=10)
-kmeans = kmeans.fit(featureVectorList)
-labels = kmeans.predict(featureVectorList)
-dumpResults()
+
+def run(n_clusters):
+    global labelList, characterDataList, labels
+    kmeans, labelList, characterDataList, featureVectorList = run_kmeans(n_clusters)
+    kmeans = KMeans(n_clusters=n_clusters)
+    kmeans = kmeans.fit(featureVectorList)
+    labels = kmeans.predict(featureVectorList)
+    return {'samples': dumpResults()[1], 'centers': []}
