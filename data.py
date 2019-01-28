@@ -13,7 +13,6 @@ def reshape_image_to_1D(image):
 # train_labels = mnist.train_labels()
 test_images = mnist.test_images()
 images = test_images.reshape(reshape_image_to_1D(test_images))
-print(test_images.shape)
 # test_images = test_images.reshape(reshape_image_to_1D(test_images))
 # test_labels = mnist.test_labels()
 # images = np.concatenate((train_images, test_images))
