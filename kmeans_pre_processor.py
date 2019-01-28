@@ -80,15 +80,15 @@ def run_kmeans(n_clusters):
     return kmeans.fit(featureVectorList), labelList, characterDataList, featureVectorList
 
 
-def dumpResults():
+def dumpResults(n_clusters):
     clusterData = []
     paths = []
-    for i in range(10):
+    for i in range(n_clusters):
         clusterData.append([])
     for i in range(len(labels)):
         clusterData[labels[i]].append([characterDataList[i], labelList[i]])
 
-    for l in range(10):
+    for l in range(n_clusters):
         print("Plotting for label %d" % (l))
         fig, axes = plt.subplots(nrows=10, ncols=10, sharex=True)
         fig.set_figheight(15)
