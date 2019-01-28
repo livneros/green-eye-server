@@ -12,8 +12,7 @@ function valid_n_clusters(n_clusters){
 }
 
 function loadImages() {
-    document.getElementById('loader').style.visibility = 'visible';
-    document.getElementById("images").innerHTML = '';
+    loadNewResults();
     var xhttp = new XMLHttpRequest();
     xhttp.open('POST', SERVER_PATH , true)
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -23,12 +22,15 @@ function loadImages() {
     xhttp.onload = function()
         {
             if (this.status === 200){
-                document.getElementById("loader").style.display='none';
+                document.getElementById("loader").style.visibility: visible;;
                 document.getElementById("images").innerHTML = this.responseText;
             }
         }
 }
-
+function loadNewResults(){
+    document.getElementById('loader').style.visibility = 'visible';
+    document.getElementById("images").innerHTML = '';
+}
 function clearText(id){
     document.getElementById(id).value = "";
 }
