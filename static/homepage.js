@@ -18,10 +18,11 @@ function loadImages() {
     var n_clusters = document.getElementById('clusters_input').value;
     if(!valid_n_clusters(n_clusters)){return;}
     xhttp.send(JSON.stringify({n_clusters: n_clusters}));
-    document.getElementById("images").innerHTML = WAITING_MSG
+    $('#loader').show();
     xhttp.onload = function()
         {
             if (this.status === 200){
+                $('#loader').hide();
                 document.getElementById("images").innerHTML = this.responseText;
             }
         }
