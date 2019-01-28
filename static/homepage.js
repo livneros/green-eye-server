@@ -23,3 +23,8 @@ function loadImages() {
         }
 //    xhttp.send();
 }
+
+function clearText(this){
+    console.log("inside clear text")
+    this.val = '';
+}
