@@ -100,7 +100,7 @@ def dumpResults(n_clusters):
                 axes[i][j].imshow(clusterData[l][randomNoList[count]][0])
                 count += 1
         fig.savefig(relativeImagesDir + 'kmeans_cluster' + str(l) + '.png')
-        paths.append(relativeImagesDir + 'kmeans_cluster' + str(l) + '.png')
+        paths.append('kmeans_cluster' + str(l) + '.png')
     return clusterData, paths
 
 
