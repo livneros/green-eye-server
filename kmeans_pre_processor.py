@@ -3,6 +3,9 @@ import time
 from os import listdir
 from os.path import join, isfile, dirname, realpath
 
+import matplotlib
+
+matplotlib.use('pdf')
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -13,7 +16,6 @@ basePath = dirname(realpath(__file__))
 outputDir = basePath + "/" + relativeOutputDir
 
 relativeImagesDir = 'static/images/'
-
 
 
 def dumpFeatures(layeredOutput, data, dataLabels, isTrain):
