@@ -21,5 +21,5 @@ function loadImages() {
                 document.getElementsByClassName("images").innerHTML = this.responseText;
             }
         }
-    xhttp.send();
+//    xhttp.send();
 }
