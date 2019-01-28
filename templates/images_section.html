@@ -4,7 +4,7 @@
         <tbody>
         <tr>
             {% for i in range(results['centers'].__len__()) %}
-            <td id="center_tag"><b> center {{ {{i}} + 1 }} : </b></td>
+            <td id="center_tag"><b> center {{i + 1}} : </b></td>
             <td><img src="/static/images/{{ results['centers'][i] }}"></td>
             <td id="sample_tag"><b> samples: </b></td>
             {% for img_name in results['samples'][i] %}
