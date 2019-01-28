@@ -1,4 +1,4 @@
-const SERVER_PATH = 'http://35.204.32.41:8080';
+const SERVER_PATH = document.URL;
 const INVALID_INPUT_MSG = "Please type a valid number, between 1 to 15."
 const WAITING_MSG = "<br>Please wait while ae are processing your request...</br>"
 const MIN_N_CLUSTERS = 1;
