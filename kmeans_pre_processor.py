@@ -12,6 +12,9 @@ relativeOutputDir = 'output/'
 basePath = dirname(realpath(__file__))
 outputDir = basePath + "/" + relativeOutputDir
 
+relativeImagesDir = 'static/images/'
+
+
 
 def dumpFeatures(layeredOutput, data, dataLabels, isTrain):
     chunkSize = 5000
@@ -94,8 +97,8 @@ def dumpResults():
             for j in range(10):
                 axes[i][j].imshow(clusterData[l][randomNoList[count]][0])
                 count += 1
-        fig.savefig(relativeOutputDir + 'kmeans_cluster' + str(l) + '.png')
-        paths.append(relativeOutputDir + 'kmeans_cluster' + str(l) + '.png')
+        fig.savefig(relativeImagesDir + 'kmeans_cluster' + str(l) + '.png')
+        paths.append(relativeImagesDir + 'kmeans_cluster' + str(l) + '.png')
     return clusterData, paths
 
 
