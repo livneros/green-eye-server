@@ -77,8 +77,9 @@ body{
   overflow-y: scroll;
 }
 
-@media screen and (max-width: 600px) {
-.column {
-    width: 100%;
-  }
+#center_tag {
+    background-color:#1a10ed
+}
+#sample_tag {
+    background-color:#10eaed
 }

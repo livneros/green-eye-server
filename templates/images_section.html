@@ -4,9 +4,9 @@
         <tbody>
         <tr>
             {% for i in range(results['centers'].__len__()) %}
-            <td style="background-color:coral> center {{i}} : </td>
+            <td id="center_tag"> center {{i}} : </td>
             <td><img src="/static/images/{{ results['centers'][i] }}"></td>
-            <td style="background-color:coral> samples: </td>
+            <td id="sample_tag"> samples: </td>
             {% for img_name in results['samples'][i] %}
                 <td><img src="/static/images/{{ img_name }}"></td>
                 {% endfor %}
