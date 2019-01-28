@@ -1,8 +1,7 @@
-import json
-
-from sklearn.cluster import KMeans
-from data import *
 from PIL import Image
+from sklearn.cluster import KMeans
+
+from data import *
 
 RGB = 'RGB'
 MNIST_IMAGE_SIZE = 28
@@ -57,3 +56,5 @@ def sample_from_each_label(labels, n_clusters):
     for label in range(n_clusters):
         samples[label] = get_samples(labels, label)
     return samples
+
+run(3)
