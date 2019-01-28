@@ -12,8 +12,7 @@ function valid_n_clusters(n_clusters){
 }
 
 function loadImages() {
-    console.log(document.getElementsByClassName("loader")[0].style.visibility)
-    document.getElementsByClassName("loader")[0].style.visibility = 'hidden';
+    document.getElementsByClassName("loader")[0].style.visibility = 'visible';
     var xhttp = new XMLHttpRequest();
     xhttp.open('POST', SERVER_PATH , true)
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -24,6 +23,7 @@ function loadImages() {
         {
             if (this.status === 200){
                 $('#loader').hide();
+                document.getElementsByClassName("loader")[0].style.visibility = 'hidden';
                 document.getElementById("images").innerHTML = this.responseText;
             }
         }
