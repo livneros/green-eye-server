@@ -22,8 +22,8 @@ function loadImages() {
     xhttp.onload = function()
         {
             if (this.status === 200){
-                $('#loader').hide();
-//                document.getElementById("loader")[0].style.visibility = 'hidden';
+//                $('#loader').hide();
+                document.getElementById("loader").style.visibility = 'hidden';
                 document.getElementById("images").innerHTML = this.responseText;
             }
         }
