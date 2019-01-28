@@ -78,8 +78,13 @@ body{
 }
 
 #center_tag {
-    background-color:#1a10ed
+    background-color:#10aded
 }
 #sample_tag {
     background-color:#10eaed
+}
+
+#centers{
+    font-weight: bold;
+    font-family: "serif";
 }
