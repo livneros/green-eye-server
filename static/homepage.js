@@ -12,7 +12,7 @@ function valid_n_clusters(n_clusters){
 }
 
 function loadImages() {
-//    document.getElementById("loader").style.visibility = 'visible';
+    document.getElementById("loader").style.display='inline';
     var xhttp = new XMLHttpRequest();
     xhttp.open('POST', SERVER_PATH , true)
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -22,8 +22,7 @@ function loadImages() {
     xhttp.onload = function()
         {
             if (this.status === 200){
-//                $('#loader').hide();
-                document.getElementById("loader").style.visibility = 'hidden';
+                document.getElementById("loader").style.display='none';
                 document.getElementById("images").innerHTML = this.responseText;
             }
         }
